@@ -1,0 +1,11 @@
+# Test Case 1: Simple Sequential Operations
+# Purpose: Test basic runway access with no conflicts
+# Expected: Aircraft should land one after another with no issues
+# 
+# Format: aircraft_type arrival_delay runway_time
+# aircraft_type: 0=commercial(North), 1=cargo(South), 2=emergency(either)
+
+# Three commercial aircraft arriving with plenty of spacing
+0 0 5
+0 8 5
+0 8 5

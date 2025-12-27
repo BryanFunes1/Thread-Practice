@@ -1,0 +1,26 @@
+# Test Case 7: Fuel Emergency Scenarios
+# Purpose: Test fuel emergency priority (aircraft waiting > fuel_reserve become critical)
+# Expected: Aircraft low on fuel should get highest priority
+# Note: Each aircraft gets random fuel reserve (20-60s). This test uses long waits.
+#
+# Format: aircraft_type arrival_delay runway_time
+
+# Create a backlog with long runway operations
+0 0 25
+0 1 25
+
+# Many aircraft arrive quickly - some will run low on fuel while waiting
+0 1 8
+1 1 8
+0 1 8
+1 1 8
+0 1 8
+1 1 8
+
+# More aircraft to extend wait times
+0 2 10
+0 1 10
+1 1 10
+
+# Some of the earlier waiting aircraft should declare fuel emergencies
+# as their wait time exceeds their fuel reserve

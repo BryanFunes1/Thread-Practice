@@ -1,0 +1,25 @@
+# Test Case 4: Direction Switching
+# Purpose: Test runway direction changes (commercial prefer North, cargo prefer South)
+# Expected: After 3 consecutive same-direction, must switch for waiting opposite
+#
+# Format: aircraft_type arrival_delay runway_time
+
+# Three commercial aircraft (prefer North direction)
+0 0 6
+0 2 5
+0 2 5
+
+# Cargo arrives - after 3 commercial, direction should switch to South
+1 1 8
+
+# More commercial arrive - should wait for direction switch back
+0 1 6
+0 1 5
+
+# Three cargo in a row (testing consecutive limit again)
+1 2 7
+1 2 6
+1 2 6
+
+# Commercial to trigger switch back to North
+0 1 8

@@ -1,0 +1,15 @@
+# Test Case 2: Runway Capacity Test
+# Purpose: Test that only 2 aircraft can be on runway simultaneously
+# Expected: Third aircraft must wait for first to clear
+#
+# Format: aircraft_type arrival_delay runway_time
+
+# Two commercial aircraft arrive quickly (should both get on runway)
+0 0 10
+0 1 10
+
+# Third commercial arrives soon after (must wait - capacity is 2)
+0 1 8
+
+# Fourth after a gap
+0 5 6

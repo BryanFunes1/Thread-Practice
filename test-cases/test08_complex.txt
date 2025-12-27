@@ -1,0 +1,51 @@
+# Test Case 8: Multiple Constraints Combined
+# Purpose: Test interaction of direction switching, breaks, and emergencies
+# Expected: All rules must be enforced simultaneously
+#
+# Format: aircraft_type arrival_delay runway_time
+
+# Start with commercial (North direction)
+0 0 8
+0 2 7
+0 2 6
+
+# Emergency arrives - should get priority but same direction
+2 1 5
+
+# Cargo arrives - needs direction switch after consecutive commercial+emergency
+1 1 10
+
+# More commercial - direction should switch back
+0 1 8
+0 2 7
+
+# This is the 8th aircraft - controller needs break after this
+0 2 6
+
+# 9th aircraft - must wait for controller break
+1 2 10
+
+# Emergency during controller break - still must wait for break to finish
+2 1 5
+
+# After break, resume operations
+0 3 8
+1 2 7
+
+# Direction switching with emergency
+0 1 9
+0 1 8
+0 1 7
+2 1 6
+
+# Cargo needs direction switch
+1 1 10
+1 2 8
+
+# Another controller break approaching (16th aircraft total)
+0 2 7
+0 2 6
+1 2 8
+
+# Emergency near break time
+2 1 5

@@ -1,0 +1,17 @@
+# Test Case 3: Commercial/Cargo Separation
+# Purpose: Test that commercial and cargo cannot be on runway together
+# Expected: Cargo must wait for all commercial to clear before entering
+#
+# Format: aircraft_type arrival_delay runway_time
+
+# Commercial aircraft lands
+0 0 12
+
+# Cargo arrives while commercial is on runway (must wait)
+1 2 8
+
+# Another commercial arrives (should wait for cargo's turn)
+0 2 6
+
+# Another cargo
+1 3 7

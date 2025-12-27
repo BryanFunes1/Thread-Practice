@@ -1,0 +1,50 @@
+# Test Case 9: Rapid Arrival Stress Test
+# Purpose: Test system under heavy load with rapid arrivals
+# Expected: All synchronization must hold under pressure, no deadlocks
+#
+# Format: aircraft_type arrival_delay runway_time
+
+# Rapid commercial arrivals
+0 0 12
+0 1 10
+0 1 11
+0 1 9
+0 1 10
+
+# Rapid cargo arrivals forcing direction switch
+1 1 13
+1 1 11
+1 1 12
+1 1 10
+
+# Mix with emergencies
+2 1 8
+0 1 15
+0 1 14
+2 1 7
+1 1 13
+1 1 12
+
+# Controller break should trigger here (14th aircraft)
+
+# Continue rapid arrivals after break
+0 2 10
+1 1 11
+0 1 9
+2 1 6
+1 1 12
+0 1 10
+1 1 11
+
+# More emergencies in rapid succession
+2 1 5
+2 1 6
+2 1 5
+
+# Final wave
+0 1 8
+1 1 9
+0 1 8
+1 1 7
+2 1 6
+0 1 10

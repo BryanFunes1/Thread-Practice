@@ -1,0 +1,29 @@
+# Test Case 6: Emergency Aircraft Priority
+# Purpose: Test that emergency aircraft get priority (must be admitted within 30s)
+# Expected: Emergency should bypass normal queue but respect capacity
+#
+# Format: aircraft_type arrival_delay runway_time
+
+# Regular commercial traffic
+0 0 15
+0 2 12
+
+# Emergency arrives - should get priority over waiting commercial
+2 1 8
+
+# More commercial
+0 1 10
+0 2 10
+
+# Another emergency during heavy traffic
+2 1 6
+
+# Cargo trying to enter
+1 2 12
+
+# Emergency during cargo operations
+2 2 7
+
+# Test emergency with cargo on runway (emergency can use either direction)
+1 2 15
+2 1 5
